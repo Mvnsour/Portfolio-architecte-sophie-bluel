@@ -19,7 +19,6 @@ async function getWorks() {
 
 async function displayWorks(works) {
   const gallery = document.querySelector(".gallery");
-
   if (!gallery) {
     console.error("Erreur : L'élément .gallery n'a pas été trouvé !");
   } else {
@@ -47,6 +46,7 @@ async function displayWorks(works) {
 
 async function displayFilters() {
   const filtersContainer = document.querySelector(".filters");
+
   if (!filtersContainer) {
     console.error("Erreur : L'élément .filters n'a pas été trouvé !");
     return;
