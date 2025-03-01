@@ -199,6 +199,20 @@ li a:hover {
 	color:#B1663C;
 }
 
-.filter {
+.filters {
 	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 30px;
+}
+
+.filters button {
+	margin: 0 10px;
+	padding: 10px 20px;
+	border: none;
+	background-color: #1D6154;
+	color: white;
+	font-family: 'Syne';
+	font-weight: 700;
+	border-radius: 60px;
 }
