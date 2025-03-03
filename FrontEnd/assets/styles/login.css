@@ -171,9 +171,8 @@ input[type="submit"]:hover {
     font-weight: 900;
 }
 
-.error {
+.error-message {
   color: red;
-	display: none;
 }
 
 .forgot-password {

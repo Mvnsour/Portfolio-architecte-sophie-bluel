@@ -27,8 +27,13 @@ if (!loginForm || !emailInput || !passwordInput || !errorMessage) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({email, password})
         }).then(response => {
-                console.log("Réponse brute du serveur :", response);
-                return response.json();
+                console.log("Réponse brute du serveur :", response, response.status, response.statusText);
+                console.log(response.json());
+                if (!response.ok) {
+                    errorMessage.innerHTML = "Erreur dans l'identifiant ou le mot de passe";
+                    throw new Error(`Response status: ${response.status}`);
+                }
             })
-    })
-} 
+        })
+    }
+// Erreur dans l'idantifiant ou le mot de passe
