@@ -1,4 +1,5 @@
-const userLogin = "http://localhost:5678/api/users/login";
+import { checkAuth } from "./auth.js";
+
 const loginForm = document.getElementById("loginForm");
 const emailInput = document.getElementById("email"); ;
 const passwordInput = document.getElementById("password");
@@ -10,7 +11,7 @@ if (!loginForm || !emailInput || !passwordInput || !errorMessage) {
 } else {
     console.log("Tous les éléments du formulaire sont bien détectés !");
 
-    loginForm.addEventListener("submit", function(event) {
+    loginForm.addEventListener("submit", async(event) => {
         event.preventDefault(); // avoid the default behavior of the form
         console.log("Formulaire soumis");
 
@@ -22,18 +23,15 @@ if (!loginForm || !emailInput || !passwordInput || !errorMessage) {
         console.log("Email saisi :", email);
         console.log("Mot de passe saisi :", password);
 
-        fetch(userLogin, { 
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({email, password})
-        }).then(response => {
-                console.log("Réponse brute du serveur :", response, response.status, response.statusText);
-                console.log(response.json());
-                if (!response.ok) {
-                    errorMessage.innerHTML = "Erreur dans l'identifiant ou le mot de passe";
-                    throw new Error(`Response status: ${response.status}`);
-                }
-            })
+        checkAuth(email, password)
+        .then(data => {
+            if (data.token) { // Si l'authentification est réussie
+                localStorage.setItem('authToken', data.token); // Stocker le token d'authentification
+                window.location.href = 'index.html'; // Redirection vers la page d'accueil
+            }
+        }).catch(error => {
+            console.error("Erreur d'authentification :", error);
+            errorMessage.textContent = "Email ou mot de passe incorrect.";
+        });
         })
     }
-// Erreur dans l'idantifiant ou le mot de passe
