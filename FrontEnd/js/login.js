@@ -25,9 +25,9 @@ if (!loginForm || !emailInput || !passwordInput || !errorMessage) {
 
         checkAuth(email, password)
         .then(data => {
-            if (data.token) { // Si l'authentification est réussie
-                localStorage.setItem('authToken', data.token); // Stocker le token d'authentification
-                window.location.href = 'index.html'; // Redirection vers la page d'accueil
+            if (data.token) { // If authentication is successful
+                localStorage.setItem('authToken', data.token); // store the token in the local storage
+                window.location.href = 'index.html'; // redirect to the index page
             }
         }).catch(error => {
             console.error("Erreur d'authentification :", error);
