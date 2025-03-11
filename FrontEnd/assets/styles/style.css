@@ -52,8 +52,8 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
-/* 	background-color: #FFFEF8;
- */}
+	background-color: #FFFEF8;
+ }
 header {
 	display: flex;
 	justify-content: space-between;
@@ -215,4 +215,29 @@ li a:hover {
 	font-family: 'Syne';
 	font-weight: 700;
 	border-radius: 60px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+.container h2 {
+	margin-right: 30px;
+}
+
+.container .fa-pen-to-square {
+	color: #000;
+	cursor: pointer;
+	font-size: 15px;
+	margin-right: 5px;
+}
+
+a .fa-pen-to-square {
+	display: inline-block;
+}
+
+.edit-btn,
+.top-edit-btn {
+	cursor: pointer;
 }
