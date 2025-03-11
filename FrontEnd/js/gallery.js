@@ -1,5 +1,5 @@
 const worksUrl = "http://localhost:5678/api/works";
-const categoriesUrl = "http://localhost:5678/api/categories";
+export const categoriesUrl = "http://localhost:5678/api/categories";
 let works = []; // to store data from the API
 
 async function getWorks() {
@@ -11,6 +11,7 @@ async function getWorks() {
 
     works = await response.json();
     displayWorks(works);
+    displayWorksModal(works);
     console.log(works);
   } catch (error) {
     console.error(error.message);
@@ -24,7 +25,7 @@ async function displayWorks(works) {
   } else {
     gallery.innerHTML = ""; // don't understand why it's rendering "'gallery' is possibly null" without if/else statement
   }
-
+  
   for (const work of works) {
     // creating tags and give them the right proprety of the object
     const figure = document.createElement("figure");
@@ -44,7 +45,46 @@ async function displayWorks(works) {
   }
 }
 
-async function displayFilters() {
+async function displayWorksModal(works) {
+  const lilGallery = document.querySelector(".lil-gallery");
+  if (!lilGallery) {
+    console.error("Erreur : L'élément .lil-gallery n'a pas été trouvé !");
+  } else {
+    lilGallery.innerHTML = ""; // don't understand why it's rendering "'lilGallery' is possibly null" without if/else statement
+  }
+
+  for (const work of works) {
+    // creating tags and give them the right proprety of the object
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    img.src = work.imageUrl;
+    img.alt = work.title;
+
+    const trashIcon = document.createElement("i");
+    trashIcon.className = "fa-solid fa-trash-can";
+    trashIcon.style.color = "white";
+    trashIcon.style.fontSize = "10";
+
+    const trashIconContainer = document.createElement("div");
+    trashIconContainer.style.zIndex = "9999999999999999";
+    trashIconContainer.style.backgroundColor = "black";
+    trashIconContainer.style.width = "17";
+    trashIconContainer.style.height = "17";
+    
+    trashIconContainer.appendChild(trashIcon);
+    figure.appendChild(img);
+    figure.appendChild(trashIconContainer);
+
+    // target the right tag for nest the elements
+    if (!lilGallery) {
+      console.error("Erreur : L'élément .lil-gallery n'a pas été trouvé !");
+    } else {
+      lilGallery.appendChild(figure); // don't understand why it's rendering "'gallery' is possibly null" without if/else statement
+    }
+  }
+}
+
+export async function displayFilters() {
   const filtersContainer = document.querySelector(".filters");
 
   if (!filtersContainer) {
@@ -64,7 +104,6 @@ async function displayFilters() {
     btn.innerText = category.name;
     btn.dataset.id = category.id;
     
-    // Attacher l'événement sans exécuter immédiatement la fonction
     btn.addEventListener("click", onFilterClick);
     filtersContainer.appendChild(btn);
   }
@@ -72,7 +111,7 @@ async function displayFilters() {
 
 function onFilterClick(event) {
   const categoryId = parseInt(event.target.dataset.id);
-  let filteredWorks = works; // Assumer que `works` est une variable globale contenant les données
+  let filteredWorks = works; // by default, we display all works
 
   if (categoryId > 0) {
     filteredWorks = works.filter((work) => work.category.id === categoryId);
