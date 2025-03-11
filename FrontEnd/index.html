@@ -7,10 +7,14 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/styles/style.css">
+	<link rel="stylesheet" href="./assets/styles/modal.css">
+	<link rel="stylesheet" href="./assets/styles/littleGallery.css">
 </head>
 <body>
+		<a id="top-edit-btn" class="top-edit-btn"><i class="fa-solid fa-pen-to-square"></i>Mode édition</a>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
@@ -35,54 +39,12 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="container">
+			<h2>Mes Projets</h2>
+			<a id="edit-btn" class="edit-btn"><i class="fa-solid fa-pen-to-square"></i>modifier</a>
+		</div>
 		<div class="filters"></div>
-		<div class="gallery" id="gallery">
-<!-- 	<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>
- --></div>
+		<div class="gallery" id="gallery"></div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -98,7 +60,6 @@
 		</form>
 	</section>
 </main>
-
 <footer>
 	<nav>
 		<ul>
@@ -106,6 +67,35 @@
 		</ul>
 	</nav>
 </footer>
-<script src="js/gallery.js" defer></script>
+<div id="modal" class="modal">
+	<div class="modal-content">
+		<span id="close" class="close">&times;</span>
+		<!-- gallery view with js -->
+		<div id="modal-gallery" class="modal-gallery">
+			<h2>Galerie photo</h2>
+			<div id="lil-gallery" class="lil-gallery"></div>
+			<hr>
+			<button id="add-photo-btn" class="add-photo-btn">Ajouter une photo</button>
+		</div>
+		<div id="modal-add-photo" class="hidden">
+		<span id="to-return" class="to-return"><i class="fa-solid fa-arrow-left"></i></span>
+			<h2>Ajout photo</h2>
+			<form id="add-photo-form">
+				<label for="text-title">Titre</label>
+				<input type="text" id="text-title" required>
+				<label for="category">Catégorie</label>
+				<select name="category" id="category">
+					<option value="1">Objets</option>
+					<option value="2">Appartements</option>
+					<option value="3">Hotels & restaurants</option>
+				</select>
+				<hr>
+				<button type="submit">Valider</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="js/modal.js" type="module" defer></script>
+<script src="js/gallery.js" type="module" defer></script>
 </body>
 </html>
