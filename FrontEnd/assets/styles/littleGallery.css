@@ -14,3 +14,20 @@
   height: 103px;
   object-fit: cover;
 }
+
+.trash-icon-container {
+  background-color: black;
+  position: relative;
+  bottom: 97px;
+  left: 55px;
+  width: 17px;
+  height: 17px;
+  border-radius: 5px;
+}
+
+.fa-trash-can {
+  cursor: pointer;
+  color: white;
+  font-size: 9px;
+  padding: 1px;
+}
