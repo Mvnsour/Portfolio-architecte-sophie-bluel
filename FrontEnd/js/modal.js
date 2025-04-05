@@ -1,58 +1,62 @@
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("close");
-const openModal = document.getElementById("edit-btn"); // edit
-const topEditBtn = document.getElementById("top-edit-btn"); // edition
+const openEditBtn = document.getElementById("edit-btn"); // to delete photo
+const openTopEditBtn = document.getElementById("top-edit-btn"); // to add photo
 const addPhotoBtn = document.getElementById("add-photo-btn");
-const galleryModal = document.getElementById("modal-gallery");
+const modalGallery = document.getElementById("modal-gallery");
 const modalAddPhoto = document.getElementById("modal-add-photo");
 const toReturn = document.getElementById("to-return");
 
-const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-
+const isLoggedIn = localStorage.getItem("authToken") !== null;
+  
 if (isLoggedIn) {
-  console.log("L'utilisateur est connecté !");
+  console.log("The user is connected !");
   localStorage.removeItem("isLoggedIn");
 }
 
-if (!modal || !openModal || !closeModal || !topEditBtn || !addPhotoBtn || !galleryModal || !modalAddPhoto || !toReturn) {
-  console.log("Erreur : Un ou plusieurs éléments du formulaire sont introuvables !");
+if (!modal || !openEditBtn || !closeModal || !openTopEditBtn || !addPhotoBtn || !modalGallery || !modalAddPhoto || !toReturn) {
+  console.log("Error: One or more elements are missing!");
 } else {
-  const displayModal = () => modal.style.display = "block";
+
+  // Functions used to show/hide the modal and the views
+  const showModal = () => modal.style.display = "block";
   const hideModal = () => modal.style.display = "none";
-  const displayGalleryModal = () => galleryModal.style.display = "block";
-  const hideGalleryModal = () => galleryModal.style.display = "none";
-  const displayAddPhotoModal = () => modalAddPhoto.style.display = "block";
-  const hideAddPhotoModal = () => modalAddPhoto.style.display = "none";
-  
-  openModal.onclick = () =>{
-    displayModal();
-    displayGalleryModal();
-    hideAddPhotoModal();
+
+  const showGalleryView = () => {
+    modalGallery.classList.remove("hidden");
+    modalAddPhoto.classList.add("hidden");
+  }
+
+  const showAddPhotoView = () => {
+    modalGallery.classList.add("hidden");
+    modalAddPhoto.classList.remove("hidden");
+  }
+
+  // Events
+  openEditBtn.onclick = () =>{
+    showModal();
+    showGalleryView(); // display the gallery
+    toReturn.style.display = "block"; // show the return button
   };
 
-  closeModal.onclick = () => {
-    modal.style.display = "none";
+  openTopEditBtn.onclick = () => {
+    showModal();
+    showAddPhotoView(); // display the form to add a photo
+    toReturn.style.display = "none";
   };
 
-  topEditBtn.onclick = () => {
-    displayModal();
-    hideGalleryModal();
-    displayAddPhotoModal();
-  };
-
-  window.onclick = (event) => {
-    if (event.target === modal) {
-      hideModal();
-    }
-  };
+  closeModal.onclick = () => hideModal();
 
   addPhotoBtn.onclick = () => {
-    galleryModal.classList.add("hidden");  // hide the gallery
+    modalGallery.classList.add("hidden");  // hide the gallery
     modalAddPhoto.classList.remove("hidden");  // display the form to add a photo
   }
 
-  toReturn.onclick = () => {
-    galleryModal.classList.remove("hidden"); // display the gallery
-    modalAddPhoto.classList.add("hidden"); // hide the form to add a photo
-  }
+  toReturn.onclick = () => showGalleryView();
+
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      hideModal();
+    }
+  };
 }
