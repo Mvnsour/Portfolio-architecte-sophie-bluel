@@ -215,6 +215,7 @@ li a:hover {
 	font-family: 'Syne';
 	font-weight: 700;
 	border-radius: 60px;
+	cursor: pointer;
 }
 
 .container {

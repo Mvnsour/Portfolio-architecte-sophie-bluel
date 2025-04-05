@@ -12,7 +12,6 @@ async function getWorks() {
     works = await response.json();
     displayWorks(works);
     displayWorksModal(works);
-    console.log(works);
   } catch (error) {
     console.error(error.message);
   }
@@ -29,9 +28,12 @@ async function displayWorks(works) {
   for (const work of works) {
     // creating tags and give them the right proprety of the object
     const figure = document.createElement("figure");
+    figure.dataset.id = work.id;
+
     const img = document.createElement("img");
     img.src = work.imageUrl;
     img.alt = work.title;
+
     const figcaptionElement = document.createElement("figcaption");
     figcaptionElement.innerText = work.title;
     // target the right tag for nest the elements
@@ -56,21 +58,19 @@ async function displayWorksModal(works) {
   for (const work of works) {
     // creating tags and give them the right proprety of the object
     const figure = document.createElement("figure");
+    figure.dataset.id = work.id;
     const img = document.createElement("img");
     img.src = work.imageUrl;
     img.alt = work.title;
 
     const trashIcon = document.createElement("i");
     trashIcon.className = "fa-solid fa-trash-can";
-    trashIcon.style.color = "white";
-    trashIcon.style.fontSize = "10";
-
+    trashIcon.onclick = () => {
+      deleteWork(work.id);
+    }
     const trashIconContainer = document.createElement("div");
-    trashIconContainer.style.zIndex = "9999999999999999";
-    trashIconContainer.style.backgroundColor = "black";
-    trashIconContainer.style.width = "17";
-    trashIconContainer.style.height = "17";
-    
+    trashIconContainer.className = "trash-icon-container";
+
     trashIconContainer.appendChild(trashIcon);
     figure.appendChild(img);
     figure.appendChild(trashIconContainer);
@@ -118,6 +118,42 @@ function onFilterClick(event) {
   }
 
   displayWorks(filteredWorks);
+}
+
+async function deleteWork(workId) {
+  const token = localStorage.getItem("authToken");
+  try {
+    const response = await fetch(`${worksUrl}/${workId}`, {
+      method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erreur : ${response.status}`);
+    }
+
+    console.log(`Travail ${workId} supprimé avec succès !`);
+    removeWorkFromDOM(workId);
+    
+  } catch (error) {
+    console.error("Erreur lors de la suppression du travail :", error);
+  }
+}
+
+function removeWorkFromDOM(workId) {
+  // remove the element from the gallery
+  const galleryElement = document.querySelector(`.gallery figure[data-id="${workId}"]`);
+  if (galleryElement) {
+    galleryElement.remove();
+  }
+
+  // remove the element from the modal gallery
+  const modalGalleryElement = document.querySelector(`#lil-gallery figure[data-id="${workId}"]`);
+  if (modalGalleryElement) {
+    modalGalleryElement.remove();
+  }
 }
 
 getWorks();
