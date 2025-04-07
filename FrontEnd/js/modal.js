@@ -7,13 +7,6 @@ const modalGallery = document.getElementById("modal-gallery");
 const modalAddPhoto = document.getElementById("modal-add-photo");
 const toReturn = document.getElementById("to-return");
 
-const isLoggedIn = localStorage.getItem("authToken") !== null;
-  
-if (isLoggedIn) {
-  console.log("The user is connected !");
-  localStorage.removeItem("isLoggedIn");
-}
-
 if (!modal || !openEditBtn || !closeModal || !openTopEditBtn || !addPhotoBtn || !modalGallery || !modalAddPhoto || !toReturn) {
   console.log("Error: One or more elements are missing!");
 } else {
