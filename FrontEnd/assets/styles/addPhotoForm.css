@@ -1,0 +1,38 @@
+.add-photo-container {
+  background: #E8F1F6;
+  width: 420px;
+  height: 169px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.fa-image {
+  font-size: 76px;
+  color: #B9C5CC;
+  margin-top: 15px;
+}
+
+.file-btn-container {
+  margin: 10px 0 7px;
+}
+
+.file-btn {
+  background: #CBD6DC;
+  height: 36px;
+  width: 173px;
+  display: flex;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #306685;
+}
+
+#paragraph {
+  color: #444444;
+  font-size: 11px;
+  margin-bottom: 10px;
+}
