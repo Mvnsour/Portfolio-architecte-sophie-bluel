@@ -127,8 +127,8 @@ li:hover,li a:active {
 }
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
 }
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -222,12 +222,15 @@ li a:hover {
 	display: flex;
 	justify-content: center;
 	align-items: baseline;
-}
-.container h2 {
-	margin-right: 30px;
+	margin-bottom: 100px;
 }
 
-.container .fa-pen-to-square {
+.container .edit-btn {
+	margin-left: 30px;
+}
+
+.container .fa-pen-to-square,
+.top-edit-btn .fa-pen-to-square {
 	color: #000;
 	cursor: pointer;
 	font-size: 15px;
