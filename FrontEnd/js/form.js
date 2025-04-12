@@ -1,4 +1,4 @@
-import { deleteWork, displayWorksModal } from "./gallery.js";
+import { deleteWork, worksUrl, categoriesUrl } from "./gallery.js";
 // get the form and its elements
 const form = document.getElementById("form");  // Corrigé : "form" au lieu de "add-photo-form"
 const titleInput = document.getElementById("text-title");
