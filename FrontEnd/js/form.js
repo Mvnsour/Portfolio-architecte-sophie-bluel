@@ -1,6 +1,4 @@
-
-
-import { deleteWork, displayWorksModal } from "./gallery.js";
+import { deleteWork, worksUrl, categoriesUrl } from "./gallery.js";
 // get the form and its elements
 const form = document.getElementById("form");  // Corrigé : "form" au lieu de "add-photo-form"
 const titleInput = document.getElementById("text-title");
@@ -10,9 +8,8 @@ const submitBtn = document.getElementById("submit-photo-form"); // Ajout du bout
 
 if (!form || !titleInput || !categorySelect || !imageInput) {
   console.error("Erreur : Un ou plusieurs éléments du formulaire n'ont pas été trouvés !");
-  
 } else {
-  
+
 // error message
 const errorMessage = document.createElement("p");
 errorMessage.style.color = "red";
@@ -70,7 +67,7 @@ imageInput.addEventListener("change", () => {
 // load categories
 async function loadCategories() {
   try {
-    const response = await fetch("http://localhost:5678/api/categories");
+    const response = await fetch(categoriesUrl);
     if (!response.ok) {
       throw new Error(`Erreur lors du chargement des catégories: ${response.status}`);
     }
@@ -129,7 +126,7 @@ form.addEventListener("submit", async (e) => {
   const token = localStorage.getItem("authToken"); 
 
   try {
-    const response = await fetch("http://localhost:5678/api/works", {
+    const response = await fetch(worksUrl, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`
