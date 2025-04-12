@@ -1,4 +1,4 @@
-const worksUrl = "http://localhost:5678/api/works";
+export const worksUrl = "http://localhost:5678/api/works";
 export const categoriesUrl = "http://localhost:5678/api/categories";
 let works = []; // to store data from the API
 
@@ -47,7 +47,7 @@ async function displayWorks(works) {
   }
 }
 
-async function displayWorksModal(works) {
+export async function displayWorksModal(works) {
   const lilGallery = document.querySelector(".lil-gallery");
   if (!lilGallery) {
     console.error("Erreur : L'élément .lil-gallery n'a pas été trouvé !");
@@ -120,7 +120,7 @@ function onFilterClick(event) {
   displayWorks(filteredWorks);
 }
 
-async function deleteWork(workId) {
+export async function deleteWork(workId) {
   const token = localStorage.getItem("authToken");
   try {
     const response = await fetch(`${worksUrl}/${workId}`, {
