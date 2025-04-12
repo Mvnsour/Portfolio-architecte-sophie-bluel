@@ -17,7 +17,7 @@ export const updateUI = () => {
             loginLink.onclick = () => {
                 localStorage.removeItem("authToken");
                 window.location.href = "index.html";
-                window.location.reload(); //
+                window.location.reload(); // Reload the page to update the UI
             };
         } else {
             loginLink.textContent = "login";
