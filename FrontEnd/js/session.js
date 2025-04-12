@@ -34,7 +34,7 @@ export const updateUI = () => {
     }
 
     if (topEditButton) {
-        topEditButton.style.display = token ? "block" : "none";
+        topEditButton.style.display = token ? "flex" : "none";
     }
 };
 

@@ -1,13 +1,12 @@
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("close");
-const openEditBtn = document.getElementById("edit-btn"); // to delete photo
-const openTopEditBtn = document.getElementById("top-edit-btn"); // to add photo
+const openEditBtn = document.getElementById("edit-btn");
 const addPhotoBtn = document.getElementById("add-photo-btn");
 const modalGallery = document.getElementById("modal-gallery");
 const modalAddPhoto = document.getElementById("modal-add-photo");
 const toReturn = document.getElementById("to-return");
 
-if (!modal || !openEditBtn || !closeModal || !openTopEditBtn || !addPhotoBtn || !modalGallery || !modalAddPhoto || !toReturn) {
+if (!modal || !openEditBtn || !closeModal || !addPhotoBtn || !modalGallery || !modalAddPhoto || !toReturn) {
   console.log("Error: One or more elements are missing!");
 } else {
 
@@ -30,12 +29,6 @@ if (!modal || !openEditBtn || !closeModal || !openTopEditBtn || !addPhotoBtn || 
     showModal();
     showGalleryView(); // display the gallery
     toReturn.style.display = "block"; // show the return button
-  };
-
-  openTopEditBtn.onclick = () => {
-    showModal();
-    showAddPhotoView(); // display the form to add a photo
-    toReturn.style.display = "none";
   };
 
   closeModal.onclick = () => hideModal();

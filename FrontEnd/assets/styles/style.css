@@ -237,11 +237,17 @@ li a:hover {
 	margin-right: 5px;
 }
 
-a .fa-pen-to-square {
-	display: inline-block;
+.edit-btn {
+	cursor: pointer;
 }
 
-.edit-btn,
 .top-edit-btn {
-	cursor: pointer;
+	justify-content: center;
+	background: #000;
+	color: #FFF;
+}
+
+.top-edit-btn .fa-pen-to-square {
+	display: inline-block;
+	color: #FFF;
 }
