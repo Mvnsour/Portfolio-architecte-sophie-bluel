@@ -7,16 +7,13 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .fa-image {
   font-size: 76px;
   color: #B9C5CC;
-  margin-top: 15px;
-}
-
-.file-btn-container {
-  margin: 10px 0 7px;
+  margin: 15px 0 10px;
 }
 
 .file-btn {
@@ -35,4 +32,49 @@
   color: #444444;
   font-size: 11px;
   margin-bottom: 10px;
+}
+
+form {
+  width: 420px;
+  margin: auto;
+}
+
+label, input, select {
+display: block;
+text-align: left;
+}
+input, select {
+  width: 100%;
+  font-family: 'Work Sans';
+  font-size: 14px;
+  font-weight: 400;
+  color: #444444;
+  height: 51px;
+  border: none;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 14px 0 #00000017;
+  padding: 10px;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
+#submit-photo-form {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #A7A7A7;
+  color: white;
+  font-family: 'Syne';
+  font-weight: 700;
+  border-radius: 60px;
+  width: 237px
+}
+
+.add-photo-container img {
+  width: 129px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
