@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (data.token) { 
           localStorage.setItem("authToken", data.token); // Store the token in localStorage
           localStorage.setItem("isLoggedIn", "true"); // Store the login state
-          window.location.href = 'index.html'; // Redirection vers la page principale
+          window.location.href = 'index.html'; // Redirection to the home page
         }
       } catch (error) {
         console.error("Authentification error :", error);

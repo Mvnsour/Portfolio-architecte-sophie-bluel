@@ -1,5 +1,5 @@
 import { deleteWork, worksUrl, categoriesUrl } from "./gallery.js";
-// get the form and its elements
+
 const form = document.getElementById("form");
 const titleInput = document.getElementById("text-title");
 const categorySelect = document.getElementById("category");
@@ -15,7 +15,6 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
   console.error("Erreur : Un ou plusieurs éléments du formulaire n'ont pas été trouvés !");
 } else {
 
-  // error message
   const errorMessage = document.createElement("p");
   errorMessage.style.color = "red";
   errorMessage.style.textAlign = "center"; // Pour un meilleur affichage
@@ -54,7 +53,7 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
     }
   }
   
-  // Ajouter des écouteurs d'événements pour valider le formulaire à chaque modification
+  // Add event listeners to validate the form on each change
   titleInput.addEventListener("input", validateForm);
   categorySelect.addEventListener("change", validateForm);
 
