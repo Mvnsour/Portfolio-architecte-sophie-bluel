@@ -209,20 +209,25 @@ li a:hover {
 .filters button {
 	margin: 0 10px;
 	padding: 10px 20px;
-	border: none;
-	background-color: #1D6154;
-	color: white;
+	border: 3px #1D6154 solid;
+	background-color: #FFFEF8;
+	color: #1D6154;
 	font-family: 'Syne';
 	font-weight: 700;
 	border-radius: 60px;
 	cursor: pointer;
 }
 
+.filters button:focus{
+	background-color: #1D6154;
+  color: #FFFEF8;
+}
+
 .container {
 	display: flex;
 	justify-content: center;
 	align-items: baseline;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 }
 
 .container .edit-btn {
