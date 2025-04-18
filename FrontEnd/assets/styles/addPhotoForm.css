@@ -64,8 +64,13 @@ input {
   padding: 0 10px;
 }
 
-select {
+.select-container {
   width: 420px;
+}
+
+select {
+  width: 100%;
+  padding: 0 10px;
 }
 
 #submit-photo-form {

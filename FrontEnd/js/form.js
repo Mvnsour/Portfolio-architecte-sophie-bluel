@@ -18,7 +18,7 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
   const errorMessage = document.createElement("p");
   errorMessage.style.color = "red";
   errorMessage.style.textAlign = "center";
-  errorMessage.style.marginTop = "5px";
+  errorMessage.style.marginTop = "10px";
   if (form) {
     form.appendChild(errorMessage);
   }
@@ -174,7 +174,7 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
       errorMessage.textContent = "Projet ajouté avec succès !";
       errorMessage.style.color = "green";
       errorMessage.style.textAlign = "center";
-      errorMessage.style.marginTop = "5px";
+      errorMessage.style.marginTop = "10px";
 
       setTimeout(() => {
         errorMessage.textContent = "";
