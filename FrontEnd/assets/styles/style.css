@@ -48,8 +48,6 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 	background-color: #FFFEF8;
@@ -127,6 +125,11 @@ li:hover,li a:active {
 }
 #portfolio h2 {
 	text-align: center;
+}
+
+.main-container {
+	margin: auto;
+	max-width: 1140px;
 }
 
 .gallery {
@@ -250,6 +253,7 @@ li a:hover {
 	justify-content: center;
 	background: #000;
 	color: #FFF;
+	padding: 22px;
 }
 
 .top-edit-btn .fa-pen-to-square {
