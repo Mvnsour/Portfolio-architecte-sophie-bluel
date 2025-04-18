@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	background-color: #FFFEF8;
 }
 
 ol, ul {
@@ -49,8 +50,6 @@ table {
 }
 /** end reset css**/
 body {
-	max-width: 1140px;
-	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
@@ -90,12 +89,10 @@ h2{
 nav ul {
 	display: flex;
 	align-items: center;
-	list-style-type: none;
-
 }
+
 nav li {
 	padding: 0 10px;
-	font-size: 1.2em;
 }
 
 li:hover,li a:active {
@@ -110,9 +107,12 @@ footer nav ul {
 	margin: 2em
 }
 
-li a {
+nav ul li a
+,li a {
 	text-decoration: none;
 	color: black;
+	font-size: 16px;
+	font-weight: 100;
 }
 
 li a:hover {
@@ -140,10 +140,12 @@ li a:hover {
 	flex-direction: column;
 }
 
-#login-container input {
+#login-container input[type="email"],
+#login-container input[type="password"] {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
+	padding: 0px 10px;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
@@ -158,6 +160,7 @@ input[type="submit"] {
 	background-color: #1D6154;
 	margin : 2em auto ;
 	width: 180px;
+	height : 36px;
 	text-align: center;
 	border-radius: 60px;
 	cursor: pointer;
@@ -167,9 +170,15 @@ input[type="submit"]:hover {
 	background-color: #0E2F28;
 }
 
-#login-page {
-    font-weight: 900;
+#login-link {
+  font-weight: 900;
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0.9);
 }
+
+img {
+	width: 22px;
+	filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 2)) contrast(110%);
+	transform: scale(1);}
 
 .error-message {
   color: red;
@@ -179,4 +188,17 @@ input[type="submit"]:hover {
 	color: black;
 	cursor: pointer;
 	text-align: center;
+}
+
+.main-container {
+	margin: auto;
+	max-width: 1140px;
+}
+
+.footer {
+	position: absolute;
+  bottom: 1px;
+  right: 1px;
+	background: white;
+  width: 100%;
 }
