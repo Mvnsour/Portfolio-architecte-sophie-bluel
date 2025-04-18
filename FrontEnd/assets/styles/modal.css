@@ -20,6 +20,7 @@
   margin: auto;
   margin-top: 75px;
   text-align: center;
+  overflow: scroll; /* Enable scrolling if we add many photos */
 }
 
 .modal .modal-content .modal-gallery h2,
