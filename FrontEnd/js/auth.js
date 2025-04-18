@@ -20,7 +20,6 @@ export async function checkAuth(email, password) {
     }
     return data; // return the token if successful
   } catch (error) {
-    console.error(error);
     throw error; // spread the error to handle it in the login.js file
   }
 }

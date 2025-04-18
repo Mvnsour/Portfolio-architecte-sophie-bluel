@@ -2,7 +2,6 @@ import { checkAuth } from "./auth.js";
 
 // Method 1: Using DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Page fully loaded');
 
   const loginForm = document.getElementById("loginForm");
   const emailInput = document.getElementById("email");
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
           window.location.href = 'index.html'; // Redirection to the home page
         }
       } catch (error) {
-        console.error("Authentification error :", error);
         errorMessage.textContent = "Email ou mot de passe incorrect.";
       }
     });

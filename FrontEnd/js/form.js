@@ -17,7 +17,8 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
 
   const errorMessage = document.createElement("p");
   errorMessage.style.color = "red";
-  errorMessage.style.textAlign = "center"; // Pour un meilleur affichage
+  errorMessage.style.textAlign = "center";
+  errorMessage.style.marginTop = "5px";
   if (form) {
     form.appendChild(errorMessage);
   }
@@ -129,7 +130,6 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
         }
       };
     } catch (error) {
-      console.error("Erreur lors du chargement des catégories :", error);
       errorMessage.textContent = "Impossible de charger les catégories. Veuillez réessayer.";
     }
   }
@@ -173,6 +173,12 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
       // display success message
       errorMessage.textContent = "Projet ajouté avec succès !";
       errorMessage.style.color = "green";
+      errorMessage.style.textAlign = "center";
+      errorMessage.style.marginTop = "5px";
+
+      setTimeout(() => {
+        errorMessage.textContent = "";
+      }, 5000);
       
       // reset the form
       // @ts-ignore
@@ -195,15 +201,16 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
       addWorkToModalGallery(newWork);
 
     } catch (err) {
-      console.error("Erreur lors de l'envoi :", err);
       errorMessage.textContent = "Erreur lors de l'envoi du formulaire. Veuillez réessayer.";
       errorMessage.style.color = "red";
     } finally {
       // activate the submit button and change its text
       if (submitBtn) {
         // @ts-ignore
-        submitBtn.disabled = false;
+        submitBtn.disabled = true;
         submitBtn.textContent = "Valider";
+        submitBtn.style.backgroundColor = "#A7A7A7";
+        submitBtn.style.cursor = "not-allowed";
       }
     }
   });
@@ -258,5 +265,4 @@ if (!form || !titleInput || !categorySelect || !imageInput) {
     figure.appendChild(trashContainer);
     lilGallery.appendChild(figure);
   }
-
 }
