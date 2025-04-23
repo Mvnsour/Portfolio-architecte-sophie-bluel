@@ -90,7 +90,7 @@ nav ul {
 
 }
 nav li {
-	padding: 0 10px;
+	padding: 30px 10px;
 	font-size: 1.2em;
 }
 
@@ -190,7 +190,7 @@ input[type="submit"]{
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 0 2em
 }
 
 li a {
