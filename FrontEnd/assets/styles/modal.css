@@ -15,10 +15,10 @@
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  height: 688px;
+  height: 670px;
   width: 630px;
   margin: auto;
-  margin-top: 15px;
+  margin-top: 20px;
   text-align: center;
   overflow: scroll; /* Enable scrolling if we add many photos */
 }
