@@ -47,7 +47,7 @@ async function displayWorks(works) {
   }
 }
 
-export async function displayWorksModal(works) {
+async function displayWorksModal(works) {
   const lilGallery = document.querySelector(".lil-gallery");
   if (!lilGallery) {
     console.error("Erreur : L'élément .lil-gallery n'a pas été trouvé !");
@@ -84,7 +84,7 @@ export async function displayWorksModal(works) {
   }
 }
 
-export async function displayFilters() {
+async function displayFilters() {
   const filtersContainer = document.querySelector(".filters");
 
   if (!filtersContainer) {

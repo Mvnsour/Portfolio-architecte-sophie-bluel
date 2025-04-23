@@ -3,7 +3,7 @@ const filters = document.getElementById("filters");
 const editButton = document.getElementById("edit-btn");
 const topEditButton = document.getElementById("top-edit-btn");
 
-export const updateUI = () => {
+const updateUI = () => {
     const token = localStorage.getItem("authToken");
     const isOnIndexPage = window.location.pathname.includes("index.html") || window.location.pathname === "/";
 
