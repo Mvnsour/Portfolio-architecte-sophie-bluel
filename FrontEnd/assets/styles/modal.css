@@ -18,7 +18,7 @@
   height: 688px;
   width: 630px;
   margin: auto;
-  margin-top: 75px;
+  margin-top: 15px;
   text-align: center;
   overflow: scroll; /* Enable scrolling if we add many photos */
 }
