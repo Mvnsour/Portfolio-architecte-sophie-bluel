@@ -90,7 +90,7 @@ Once the dependencies have been installed, run the project with the command
 npm start
 ```
 
-**Leave this terminal running to work
+**Leave this terminal running to work**
 
 ### Test account for Sophie Bluel
 
