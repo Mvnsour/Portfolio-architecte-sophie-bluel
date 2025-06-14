@@ -50,3 +50,56 @@ npm start
 [documentation Swagger](http://localhost:5678/api-docs/)
 
 Pour lire la documentation, utiliser Chrome ou Firefox
+
+# EN
+## Portfolio-architecte-sophie-bluel
+
+Web integrator project code 6.
+
+### Architecture
+
+This git repo contains the project's 2 software building blocks 
+- Frontend
+- Backend
+
+### To launch the code
+#### Backend
+Open the Backend folder and read the README.md
+
+#### Frontend
+Open the Frontend folder and launch liveserver from your IDE
+ 
+### Tip
+ 
+If you want to display both backend and frontend code, do so in 2 different VSCode instances to avoid any problems.
+ ## Backend API - Sophie Bluel
+
+This folder contains the project's backend code
+
+### Launching the backend
+
+Open a terminal at this location
+
+To install the project's dependencies, run the command 
+```bash 
+npm install
+```
+
+Once the dependencies have been installed, run the project with the command 
+```bash 
+npm start
+```
+
+**Leave this terminal running to work
+
+### Test account for Sophie Bluel
+
+|email|password|
+| :---------------: | :---------------: |
+|sophie.bluel@test.tld|S0phie|
+
+### Access Swagger
+
+[Swagger documentation](http://localhost:5678/api-docs/)
+
+To read the documentation, use Chrome or Firefox
