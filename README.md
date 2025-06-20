@@ -1,6 +1,8 @@
 # FR
 ## Portfolio-architecte-sophie-bluel
 
+- [Maquette Figma](https://www.figma.com/design/kfKHknHySoTibZfdolGAX6/Sophie-Bluel---Desktop?node-id=0-1&p=f&t=o2tKtav8z9zF2I5u-0)
+
 Code du projet 6 d'intégrateur web.
 
 ### Architecture
@@ -53,6 +55,8 @@ Pour lire la documentation, utiliser Chrome ou Firefox
 
 # EN
 ## Portfolio-architecte-sophie-bluel
+
+- [Figma mock-up](https://www.figma.com/design/kfKHknHySoTibZfdolGAX6/Sophie-Bluel---Desktop?node-id=0-1&p=f&t=o2tKtav8z9zF2I5u-0)
 
 Web integrator project code 6.
 
